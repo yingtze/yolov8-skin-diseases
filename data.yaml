@@ -1,0 +1,19 @@
+# YOLOv8 Classification Dataset Configuration
+# Skin Diseases Classification Dataset
+
+# Dataset paths (relative to this file)
+path: /Users/kharismagp/trainML/dataset
+train: train
+val: val
+test: test
+
+# Number of classes
+nc: 5
+
+# Class names
+names:
+  0: acne
+  1: eksim
+  2: herpes
+  3: panu
+  4: rosacea
