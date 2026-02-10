@@ -27,20 +27,78 @@ A YOLOv8 small model trained to classify 5 types of skin diseases with **99.34% 
 
 ## Quick Start
 
-### 1. Prepare Dataset
+### Prerequisites
+
+Install required packages:
+```bash
+pip install ultralytics kaggle opencv-python pillow matplotlib scikit-learn seaborn
+```
+
+### Step 1: Download Dataset
+
+**Important:** You must download the dataset before running any scripts.
+
+#### Option A: Using Kaggle API (Recommended)
+
+1. Get your Kaggle API credentials:
+   - Go to https://www.kaggle.com/settings
+   - Click "Create New API Token" to download `kaggle.json`
+
+2. Set up Kaggle API:
+   ```bash
+   # Create kaggle directory
+   mkdir -p ~/.kaggle
+   
+   # Copy your kaggle.json to the directory
+   cp /path/to/kaggle.json ~/.kaggle/
+   
+   # Set permissions
+   chmod 600 ~/.kaggle/kaggle.json
+   ```
+
+3. Download and extract the dataset:
+   ```bash
+   # Download dataset
+   kaggle datasets download sponishflea/classification-of-skin-diseases
+   
+   # Extract
+   unzip classification-of-skin-diseases.zip
+   
+   # Verify the 'train' folder exists
+   ls -d train
+   ```
+
+#### Option B: Manual Download
+
+1. Visit [Kaggle Dataset Page](https://www.kaggle.com/datasets/sponishflea/classification-of-skin-diseases)
+2. Click "Download" button
+3. Extract the zip file in the project directory
+4. Ensure you have a `train/` folder with 5 subdirectories (acne, eksim, herpes, panu, rosacea)
+
+### Step 2: Prepare Dataset
+
+After downloading, prepare the dataset for YOLO training:
 ```bash
 python3 prepare_dataset.py
 ```
 
-### 2. Train Model
+This will create a `dataset/` directory with train/val/test splits.
+
+### Step 3: Train Model
+
 ```bash
 python3 train_yolo.py
 ```
 
-### 3. Evaluate Model
+Training will take approximately 15-30 minutes depending on your hardware.
+
+### Step 4: Evaluate Model
+
 ```bash
 python3 test_model.py
 ```
+
+This generates confusion matrix and classification report.
 
 ## Usage
 

@@ -1,5 +1,63 @@
 # Kaggle Showcase - Quick Guide
 
+## 🚀 Running on Kaggle/Colab
+
+### Step 1: Download the Dataset
+
+**Before running any scripts**, you must download the dataset:
+
+```python
+# Install Kaggle API
+!pip install kaggle
+
+# Upload your kaggle.json file to the notebook, then:
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!chmod 600 ~/.kaggle/kaggle.json
+
+# Download and extract dataset
+!kaggle datasets download sponishflea/classification-of-skin-diseases
+!unzip -q classification-of-skin-diseases.zip
+
+# Verify the 'train' folder exists
+!ls -d train
+```
+
+### Step 2: Clone/Upload This Repository
+
+```python
+# Option A: Clone from GitHub
+!git clone https://github.com/YOUR_USERNAME/yolov8-skin-disease-classifier.git
+%cd yolov8-skin-disease-classifier
+
+# Option B: Upload files manually
+# Upload all .py files and data.yaml to your notebook
+```
+
+### Step 3: Install Dependencies
+
+```python
+!pip install ultralytics opencv-python pillow matplotlib scikit-learn seaborn
+```
+
+### Step 4: Run the Pipeline
+
+```python
+# Prepare dataset
+!python3 prepare_dataset.py
+
+# Train model (takes ~15-30 minutes)
+!python3 train_yolo.py
+
+# Evaluate model
+!python3 test_model.py
+
+# Generate showcase
+!python3 create_showcase.py
+```
+
+---
+
 ## 📁 What's in the Showcase
 
 The `showcase/` directory (168KB total) contains everything you need for a Kaggle demonstration:
