@@ -4,7 +4,24 @@
 
 ### Step 1: Download the Dataset
 
-**Before running any scripts**, you must download the dataset:
+**Before running any scripts**, you must download the dataset.
+
+#### Option A: Automated Download (Recommended)
+
+```python
+# Install kagglehub
+!pip install kagglehub
+
+# Run the download script
+!python3 download_dataset.py
+```
+
+The script will automatically:
+- Download the dataset
+- Set up the `train/` folder with 5 class subdirectories
+- Verify the structure
+
+#### Option B: Manual Download
 
 ```python
 # Install Kaggle API

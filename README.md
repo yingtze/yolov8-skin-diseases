@@ -31,14 +31,31 @@ A YOLOv8 small model trained to classify 5 types of skin diseases with **99.34% 
 
 Install required packages:
 ```bash
-pip install ultralytics kaggle opencv-python pillow matplotlib scikit-learn seaborn
+pip install kagglehub ultralytics kaggle opencv-python pillow matplotlib scikit-learn seaborn
 ```
 
 ### Step 1: Download Dataset
 
 **Important:** You must download the dataset before running any scripts.
 
-#### Option A: Using Kaggle API (Recommended)
+#### Option A: Automated Download (Easiest)
+
+Use the provided download script:
+```bash
+# Install kagglehub
+pip install kagglehub
+
+# Run the download script
+python3 download_dataset.py
+```
+
+This script will:
+- Download the dataset using kagglehub
+- Automatically set up the `train/` folder
+- Verify all 5 classes are present
+- Show image counts per class
+
+#### Option B: Using Kaggle API
 
 1. Get your Kaggle API credentials:
    - Go to https://www.kaggle.com/settings
@@ -68,7 +85,7 @@ pip install ultralytics kaggle opencv-python pillow matplotlib scikit-learn seab
    ls -d train
    ```
 
-#### Option B: Manual Download
+#### Option C: Manual Download
 
 1. Visit [Kaggle Dataset Page](https://www.kaggle.com/datasets/sponishflea/classification-of-skin-diseases)
 2. Click "Download" button
@@ -121,7 +138,7 @@ print(f"Predicted: {class_names[pred_class]} ({confidence:.2%})")
 ## Requirements
 
 ```bash
-pip install ultralytics kaggle opencv-python pillow matplotlib scikit-learn seaborn
+pip install kagglehub ultralytics kaggle opencv-python pillow matplotlib scikit-learn seaborn
 ```
 
 ## Project Structure
